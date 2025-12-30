@@ -11,32 +11,30 @@ import Contact from "../components/contact/Contact";
 import "../../index.css";
 
 const Home = () => {
-  return (
-    <div className="relative">
-      <div className="introduction-profile-background">
-        <div className="content">
-          <Introduction />
-          <Profile />
+    return (
+        <div className="relative">
+            <div className="introduction-profile-background">
+                <div className="content">
+                    <Introduction/>
+                    <Profile/>
+                </div>
+            </div>
+            <div className="blog-background">
+                <Blog/>
+            </div>
+            <Portfolio/>
+            <div className="bg-gray-900">
+                <WorkTogether/>
+            </div>
+
+            <div className="bg-soft-white">
+                <Profession/>
+            </div>x§
+            <HappyClients/>
+            <Testimonial/>
+            <Contact/>
         </div>
-      </div>
-      <div className="bg-soft-white pt-30">
-        <WorkProcess />
-      </div>
-      <Portfolio />
-      <div className="bg-gray-900">
-        <WorkTogether />
-      </div>
-      <div className="blog-background">
-        <Blog />
-      </div>
-      <div className="bg-soft-white">
-        <Profession />
-      </div>
-      <HappyClients />
-      <Testimonial />
-      <Contact />
-    </div>
-  );
+    );
 };
 
 export default Home;

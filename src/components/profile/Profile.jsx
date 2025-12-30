@@ -1,4 +1,4 @@
-import person from "../../assets/images/photo2.jpg";
+import person from "../../assets/images/photo4.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import SocialMedia from "../common/socialMedia/SocialMedia";
@@ -51,7 +51,7 @@ const Profile = () => {
           <div className="mt-8 flex max-md:justify-center">
             <a
               className="btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 btn-primary text-xs xxs:text-[14px] sm:text-[16px]"
-              href="#!"
+              href="#/template"
             >
               My Projects
             </a>

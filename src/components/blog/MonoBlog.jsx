@@ -5,16 +5,14 @@ const MonoBlog = ({ data }) => {
         <img
           src={data?.image}
           alt="Blog"
-          className="w-full h-56.5 object-cover "
+          className="w-50 h-50 object-cover mx-auto"
         />
         <div className="m-6">
-          <p className="text-[10px] xs:text-[14px] font-normal text-gray-400 ">
-            {data?.date} / {data?.comments} Comments
+          <p className="text-[10px] xs:text-[16px] font-bold text-gray-400 ">
+            {data?.title}
           </p>
-          <p className="text-[14px] xs:text-lg font-medium text-[#333333]">
-            {data?.title.length > 40
-              ? `${data?.title.slice(0, 40)}...`
-              : data?.title}
+          <p className="text-[10px] xs:text-lg font-medium text-[#333333]">
+            {data?.description}
           </p>
         </div>
       </a>

@@ -1,12 +1,12 @@
 import WorkSteps from "./WorkSteps";
 import logoHipnoterapia from "../../assets/logos/logo.png";
-import logoTapping from "../../assets/logos/tapping.jpeg";
-import logoEnergia from "../../assets/logos/logo.png";
-import logoBioenergetica from "../../assets/logos/logo.png";
-import logoBioNeuro from "../../assets/logos/bioneuroemcion.jpeg";
-import logoMetodo from "../../assets/logos/logo.png";
-import logoLiberacion from "../../assets/logos/logo.png";
-import logoAccess from "../../assets/logos/access.png";
+import logoTapping from "../../assets/logos/logo_tapping.png";
+import logoEnergia from "../../assets/logos/logo_energia.png";
+import logoBioenergetica from "../../assets/logos/logo_bioenergetica.png";
+import logoBioNeuro from "../../assets/logos/logo_bioneuro.png";
+import logoMetodo from "../../assets/logos/logo_metodo.png";
+import logoLiberacion from "../../assets/logos/logo_liberacion.png";
+import logoAccess from "../../assets/logos/logo_access.png";
 
 const workStepData = [
   {

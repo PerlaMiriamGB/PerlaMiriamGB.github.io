@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import logo from "../../../assets/logos/logo.png";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const navItems = [
   { id: 1, name: "Home", url: "introduction" },
   { id: 2, name: "About", url: "profile" },
-  { id: 3, name: "Process", url: "work-process" },
+  { id: 3, name: "Blog", url: "blog" },
   { id: 4, name: "Portfolio", url: "portfolio" },
-  { id: 5, name: "Blog", url: "blog" },
-  { id: 6, name: "Services", url: "services" },
+  { id: 5, name: "Services", url: "services" },
 ];
 
 const handleMenuClick = () => {
@@ -17,28 +17,11 @@ const handleMenuClick = () => {
   }
 };
 
-const menu = navItems.map((item) => (
-  <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
-    <Link
-      onClick={handleMenuClick}
-      to={item.url.toLowerCase()}
-      smooth={true}
-      duration={1000}
-      spy={true}
-      offset={-140}
-      activeStyle={{
-        backgroundColor: "#9929fb",
-        color: "white",
-      }}
-      className={`hover:text-picto-primary px-5 py-3 mx-1`}
-    >
-      {item.name}
-    </Link>
-  </li>
-));
-
 const NavBar = () => {
   const [position, setPosition] = useState(0);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,6 +32,52 @@ const NavBar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault();
+    handleMenuClick();
+    if (!isHomePage) {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 300);
+    }
+  };
+
+  const menu = navItems.map((item) =>
+    isHomePage ? (
+      <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
+        <ScrollLink
+          onClick={handleMenuClick}
+          to={item.url.toLowerCase()}
+          smooth={true}
+          duration={1000}
+          spy={true}
+          offset={-140}
+          activeStyle={{
+            backgroundColor: "#9929fb",
+            color: "white",
+          }}
+          className="hover:text-picto-primary px-5 py-3 mx-1 cursor-pointer"
+        >
+          {item.name}
+        </ScrollLink>
+      </li>
+    ) : (
+      <li key={item.id} onMouseDown={(e) => e.preventDefault()}>
+        <a
+          href="/#/"
+          onClick={(e) => handleNavClick(e, item.url)}
+          className="hover:text-picto-primary px-5 py-3 mx-1"
+        >
+          {item.name}
+        </a>
+      </li>
+    )
+  );
 
   return (
     <div
@@ -79,24 +108,36 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className={`menu menu-lg dropdown-content rounded-box z-1 mt-3 w-lvw p-2 shadow font-semibold flex-nowrap bg-white text-black`}
+              className="menu menu-lg dropdown-content rounded-box z-1 mt-3 w-lvw p-2 shadow font-semibold flex-nowrap bg-white text-black"
             >
               {menu}
             </ul>
           </div>
 
-          <Link
-            href="#introduction"
-            to={`introduction`}
-            smooth={true}
-            duration={900}
-            className="flex items-center border-0 lg:max-xxl:ps-5"
-          >
-            <img src={logo} className="h-8 sm:h-32 rounded-2xl" alt="logo" />
-            <p className="text-2xl sm:text-[32px] my-auto ms-[12px] font-semibold">
-              PM
-            </p>
-          </Link>
+          {isHomePage ? (
+            <ScrollLink
+              to="introduction"
+              smooth={true}
+              duration={900}
+              className="flex items-center border-0 lg:max-xxl:ps-5 cursor-pointer"
+            >
+              <img src={logo} className="h-8 sm:h-32 rounded-2xl" alt="logo" />
+              <p className="text-2xl sm:text-[32px] my-auto ms-[12px] font-semibold">
+                PM
+              </p>
+            </ScrollLink>
+          ) : (
+            <a
+              href="/#/"
+              onClick={(e) => handleNavClick(e, "introduction")}
+              className="flex items-center border-0 lg:max-xxl:ps-5"
+            >
+              <img src={logo} className="h-8 sm:h-32 rounded-2xl" alt="logo" />
+              <p className="text-2xl sm:text-[32px] my-auto ms-[12px] font-semibold">
+                PM
+              </p>
+            </a>
+          )}
         </div>
 
         <div className="lg:flex items-center">
@@ -104,15 +145,24 @@ const NavBar = () => {
             {menu}
           </ul>
           <p className="">
-            <Link
-              className="btn btn-sm xs:btn-md sm:btn-lg btn-primary"
-              href="#contact"
-              to={`contact`}
-              smooth={true}
-              duration={900}
-            >
-              Contact
-            </Link>
+            {isHomePage ? (
+              <ScrollLink
+                className="btn btn-sm xs:btn-md sm:btn-lg btn-primary cursor-pointer"
+                to="contact"
+                smooth={true}
+                duration={900}
+              >
+                Contact
+              </ScrollLink>
+            ) : (
+              <a
+                href="/#/"
+                onClick={(e) => handleNavClick(e, "contact")}
+                className="btn btn-sm xs:btn-md sm:btn-lg btn-primary"
+              >
+                Contact
+              </a>
+            )}
           </p>
         </div>
       </div>

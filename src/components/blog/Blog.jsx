@@ -1,7 +1,11 @@
-import img1 from "../../assets/images/blog/blog-1.jpg";
-import img2 from "../../assets/images/blog/blog-2.jpg";
-import img3 from "../../assets/images/blog/blog-3.jpg";
-import img4 from "../../assets/images/blog/blog-4.jpg";
+import logoHipnoterapia from "../../assets/logos/logo_hipnoterapia.png";
+import logoTapping from "../../assets/logos/logo_tapping.png";
+import logoEnergia from "../../assets/logos/logo_energia.png";
+import logoBioenergetica from "../../assets/logos/logo_bioenergetica.png";
+import logoBioNeuro from "../../assets/logos/logo_bioneuro.png";
+import logoMetodo from "../../assets/logos/logo_metodo.png";
+import logoLiberacion from "../../assets/logos/logo_liberacion.png";
+import logoAccess from "../../assets/logos/logo_access.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import MonoBlog from "./MonoBlog";
@@ -28,50 +32,64 @@ const custom_breakpoints = {
 const blogData = [
   {
     id: 1,
-    image: img1,
-    date: "22 Oct, 2020",
-    comments: 246,
-    title: "Designing Engaging User Interfaces for Modern Web Apps",
+    image: logoHipnoterapia,
+    title: "Hipnoterapia",
+    description:"Técnica terapéutica que utiliza un estado de relajación profunda para acceder al subconsciente y facilitar cambios positivos en pensamientos, emociones y comportamientos.",
     link: "#!",
   },
   {
     id: 2,
-    image: img2,
-    date: "22 Oct, 2020",
-    comments: 246,
-    title: "Tips for Effective Dashboard Layouts and Usability",
+    image: logoTapping,
+    title: "Emotional Freedom Technique (Tapping)",
+    description: "Método que combina la estimulación de puntos energéticos mediante suaves golpeteos con el enfoque emocional, ayudando a liberar bloqueos y reducir el estrés.",
     link: "#!",
   },
   {
     id: 3,
-    image: img3,
-    date: "22 Oct, 2020",
-    comments: 246,
-    title: "How to Visualize Data for Better Product Decisions",
+    image: logoEnergia,
+    title: "Energía Universal",
+    description:
+        "Práctica orientada a armonizar el flujo energético del cuerpo, favoreciendo el equilibrio físico, emocional y mental a través de la conexión con la energía vital.",
     link: "#!",
   },
   {
     id: 4,
-    image: img4,
-    date: "22 Oct, 2020",
-    comments: 246,
-    title: "Responsive Design: Adapting to All Devices Seamlessly",
+    image: logoBioenergetica,
+    title: "Bionergética",
+    description:
+        "Enfoque que trabaja la relación entre cuerpo y energía, utilizando movimientos, respiración y conciencia corporal para liberar tensiones y activar la vitalidad.",
     link: "#!",
   },
   {
     id: 5,
-    image: img2,
-    date: "22 Oct, 2020",
-    comments: 246,
-    title: "Streamlining Workflows with UI/UX Best Practices",
+    image: logoBioNeuro,
+    title: "Bioneuroemoción",
+    description:
+        "Método que explora la conexión entre emociones, mente y cuerpo para identificar el origen emocional de ciertos conflictos y promover una mayor comprensión personal.",
     link: "#!",
   },
   {
     id: 6,
-    image: img1,
-    date: "22 Oct, 2020",
-    comments: 246,
-    title: "Optimizing Interface Components for Performance",
+    image: logoMetodo,
+    title: "Método Yuen",
+    description:
+        "Técnica integral que busca corregir desequilibrios físicos, energéticos y emocionales, fortaleciendo el cuerpo y el sistema nervioso de forma precisa y rápida.",
+    link: "#!",
+  },
+  {
+    id: 7,
+    image: logoLiberacion,
+    title: "Liberación de la Mandíbula",
+    description:
+        "Terapia centrada en aliviar tensiones acumuladas en la mandíbula, zona clave donde se almacena estrés emocional y físico, favoreciendo la relajación general.",
+    link: "#!",
+  },
+  {
+    id: 8,
+    image: logoAccess,
+    title: "Access Consciousness",
+    description:
+        "Herramientas diseñadas para expandir la conciencia, liberar limitaciones mentales y emocionales, y abrir nuevas posibilidades de elección en la vida diaria.",
     link: "#!",
   },
 ];
@@ -80,11 +98,11 @@ const Blog = () => {
   return (
     <div className="content py-25 px-2 relative" id="blog">
       <div className="max-w-135 text-center mx-auto pb-17.5">
-        <p className="section-title pb-6">Blog</p>
-        <p className="text-xs xs:text-[16px] md:text-lg text-gray-400">
-          Check out my recent blog posts where I share insights on design,
-          development, and the latest industry trends.
-        </p>
+        <p className="section-title pt-20 pb-0">Áreas de especialidad</p>
+        {/*<p className="text-xs xs:text-[16px] md:text-lg text-gray-400">*/}
+        {/*  Check out my recent blog posts where I share insights on design,*/}
+        {/*  development, and the latest industry trends.*/}
+        {/*</p>*/}
       </div>
       <Swiper
         grabCursor={true}
